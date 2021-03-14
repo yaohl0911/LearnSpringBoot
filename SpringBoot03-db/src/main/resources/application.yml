@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/SpringBoot
+    username: root
+    password: yaohl900911
+#    driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+  config: classpath:log/logback.xml
+
+#logging:
+#  config: classpath:log4j.properties
