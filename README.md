@@ -43,7 +43,7 @@ SpringBoot 是一个快速开发的框架, 封装了Maven常用依赖、能够�
 </project>
 ```
 
-可以看到添加spring-boot-starter-web一个依赖，SpringBoot就会帮我们引入很多依赖。
+可以看到添加`spring-boot-starter-web`一个依赖，SpringBoot就会帮我们引入很多依赖。
 
 
 
@@ -63,13 +63,13 @@ public class Application {
 }
 ```
 
-结合源码，可以清晰地看到@SpringBootApplication是@SpringBootConfiguration, @EnableAutoConfiguration, @ComponentScan注解的集合。@ComponentScan默认的扫包范围是当前启动类所在目录及其子目录，所以一般建议启动类放在最外面。
+结合源码，可以清晰地看到`@SpringBootApplication`是`@SpringBootConfiguration`, `@EnableAutoConfiguration`, `@ComponentScan`注解的集合。`@ComponentScan`默认的扫包范围是当前启动类所在目录及其子目录，所以一般建议启动类放在最外面。
 
-@SpringBootConfiguration 配置类
+`@SpringBootConfiguration` 配置类
 
-@EnableAutoConfiguration 自动注入
+`@EnableAutoConfiguration` 自动注入
 
-@ComponentScan 扫包范围
+`@ComponentScan` 扫包范围
 
 ```java
 @Target({ElementType.TYPE})
@@ -118,10 +118,10 @@ public @interface SpringBootApplication {
 
 **@RestController和@Controller注解的区别**
 
-@RestController注解对应的类中所有SpringMVC url接口映射都是返回json格式
-@Controller注解对应的类中所有SpringMVC url接口映射都是返回的跳转，要想返回json格式需要在每个方法上加上@ResponseBody注解
+`@RestController`注解对应的类中所有SpringMVC url接口映射都是返回json格式
+`@Controller`注解对应的类中所有SpringMVC url接口映射都是返回的跳转，要想返回json格式需要在每个方法上加上`@ResponseBody`注解
 
-使用@RestController就不需要在每个方法上加@ResponseBody注解了，以下两种实现是等效的：
+使用`@RestController`就不需要在每个方法上加`@ResponseBody`注解了，以下两种实现是等效的：
 
 ```java
 package com.yaohl0911.service;
@@ -163,14 +163,14 @@ public class HiService {
 
 SpringBoot支持两种配置方式,一种是properties文件,一种是yml。使用yml可以减少配置文件的重复性。properties采用key = value的格式，yml采用缩紧的格式。在企业中yml方式用的是比较多的。
 
-例如：application.properties配置
+例如：`application.properties`配置
 
 ```properties
 User.name = tom
 User.age = 22
 ```
 
- 例如：application.yml配置
+ 例如：`application.yml`配置
 
 ```yml
 User:
@@ -194,7 +194,7 @@ Spring Boot默认提供静态资源目录位置需置于classpath下，目录名
 
 /META-INF/resources
 
-举例：我们可以在src/main/resources/目录下创建static，在该位置放置一个图片文件。启动程序后，尝试访问http://localhost:8080/name.jpg。如能显示图片，配置成功。
+举例：我们可以在s`rc/main/resources/`目录下创建static，在该位置放置一个图片文件。启动程序后，尝试访问http://localhost:8080/name.jpg。如能显示图片，配置成功。
 
  
 
@@ -228,7 +228,7 @@ com.yaohl0911.dao				---数据库访问层
 
 **前后端分离项目**
 
-在之前的示例中，我们都是通过@RestController来处理请求，所以返回的内容为json对象。那么如果需要渲染html页面的时候，要如何实现呢？
+在之前的示例中，我们都是通过`@RestController`来处理请求，所以返回的内容为json对象。那么如果需要渲染html页面的时候，要如何实现呢？
 
 模板引擎能够非常好的帮助seo搜索到该网页
 
@@ -244,7 +244,7 @@ SpringBoot提供了默认配置的模板引擎主要有以下几种：
 
 SpringBoot建议使用这些模板引擎，避免使用JSP。
 
-当你使用上述模板引擎中的任何一个，它们默认的模板配置路径为：src/main/resources/templates。当然也可以修改这个路径，具体如何修改，可在后续各模板引擎的配置属性中查询并修改。
+当你使用上述模板引擎中的任何一个，它们默认的模板配置路径为：`src/main/resources/templates`。当然也可以修改这个路径，具体如何修改，可在后续各模板引擎的配置属性中查询并修改。
 
 ### Freemarker
 
@@ -480,7 +480,7 @@ public class UserServiceImpl implements UserService {
 
 ### 配置文件
 
-数据库配置application.yml
+数据库配置`application.yml`
 
 ```xml
 spring:
@@ -626,7 +626,7 @@ http://localhost:8080/findById?name=3
 
 # SpringBoot日志相关
 
-一般可以使用如下方式进行日志配置，注意下面MyApplication.class就对应当前类，表明要使用日志的类。
+一般可以使用如下方式进行日志配置，注意下面`MyApplication.class`就对应当前类，表明要使用日志的类。
 
 ```java
 private static Logger log = logger.getLogger(MyApplication.class);
@@ -638,7 +638,7 @@ private static Logger log = logger.getLogger(MyApplication.class);
 
 SpringBoot默认整合了logback日志功能，需要添加Lombok依赖，结合@Slf4j注解就能使用日志功能了。
 
-logback.xml配置文件，放在src/main/resources/log路径下。注意是当前**项目**的log目录下，而不是当前**module**的目录下。
+`logback.xml`配置文件，放在`src/main/resources/log`路径下。注意是当前**项目**的log目录下，而不是当前**module**的目录下。
 
 ### **日志级别**
 
@@ -872,7 +872,7 @@ logging:
 
 ### 使用方法
 
-加@Log4j注解，在代码中使用log.xxx打印日志即可。
+加`@Log4j`注解，在代码中使用log.xxx打印日志即可。
 
 
 
@@ -992,7 +992,7 @@ Properties在线转换yml格式网址：https://www.toyaml.com/index.html
 
 好像用处不是很大，了解。
 
-用@value注解去写的话代码还是比较多。
+用`@value`注解去写的话代码还是比较多。
 
 **Maven依赖**
 
@@ -1019,7 +1019,7 @@ Properties在线转换yml格式网址：https://www.toyaml.com/index.html
 
 Spring提供的定时任务注解，但是不支持集群，所以在分布式领域很少用。
 
-注意要用该定时任务的话，需要在启动类加上@EnableScheduling注解
+注意要用该定时任务的话，需要在启动类加上`@EnableScheduling`注解
 
 每隔五秒执行一次的用法：
 
@@ -1035,11 +1035,11 @@ cron表达式生成网站：https://www.bejson.com/othertools/cron/
 
 # SpringBoot的异步处理
 
-启动类加@EnableAsync注解开启异步处理支持，需要执行异步方法上加 @Async
+启动类加`@EnableAsync`注解开启异步处理支持，需要执行异步方法上加 `@Async`
 
 ## 异步应用场景
 
-@Async实际就是多线程封装的
+`@Async`实际就是多线程封装的
 
 异步线程执行方法有可能会非常消耗cpu的资源，所以大的项目建议使用MQ异步实现。
 
@@ -1175,7 +1175,7 @@ public class RegisterService {
 }
 ```
 
-用@Asyn注解的短信服务，整合了线程池
+用`@Asyn`注解的短信服务，整合了线程池
 
 ```java
 package com.yaohl0911.service;
@@ -1284,19 +1284,19 @@ public class Application {
 }
 ```
 
-注意添加日志相关的配置文件：logback.x和application.yml
+注意添加日志相关的配置文件：`logback.xml`和`application.yml`
 
 
 
-# SpringBoot异常相关
+# SpringBoot异常相
 
-@ExceptionHandler 表示拦截异常
+`@ExceptionHandler` 表示拦截异常
 
-@ControllerAdvice 是 controller 的一个辅助类，最常用的就是作为全局异常处理的切面类
+`@ControllerAdvice` 是 controller 的一个辅助类，最常用的就是作为全局异常处理的切面类
 
-@ControllerAdvice 可以指定扫描范围
+`@ControllerAdvice` 可以指定扫描范围
 
-@ControllerAdvice 约定了几种可行的返回值，如果是直接返回 model 类的话，需要使用 @ResponseBody 进行 json 转换
+`@ControllerAdvice` 约定了几种可行的返回值，如果是直接返回 model 类的话，需要使用 `@ResponseBody` 进行 json 转换
 
 * 返回 String，表示跳到某个 view
 * 返回 modelAndView
@@ -1327,9 +1327,9 @@ public class MayiktExceptionHandler {
 
 # SpringBoot打包发布
 
-使用mvn clean package 打包
+使用`mvn clean package` 打包
 
-使用java –jar + 包全路径名
+使用`java –jar + 包全路径名`
 
 如果没有主清单报错，在pom文件中新增以下内容指定主清单。
 
